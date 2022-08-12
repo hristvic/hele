@@ -53,7 +53,7 @@ resource "aws_autoscaling_group" "as-group" {
 }
 #Createa dynamic autoscale policy
 resource "aws_autoscaling_policy" "ec2-policy" {
-  autoscaling_group_name = "autoscalling-group"
+  autoscaling_group_name = aws_autoscaling_group.as-group.name
   name                   = "ec2-policy"
   policy_type            = "TargetTrackingScaling"
 
